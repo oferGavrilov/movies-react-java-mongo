@@ -10,20 +10,27 @@ import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
-@Document(collection = "movies")
+@Document(collection = "movie")
 @Data
 @AllArgsConstructor // Takes all that private fields as arguments
 @NoArgsConstructor
 public class Movie {
     @Id
     private ObjectId id;
-    private String imdbId;
+    private Boolean adult;
+    private String backdrop_path;
+//    @DocumentReference
+    private List<Integer> genre_ids;
+    private String original_language;
+    private String original_title;
+    private String overview;
+    private Double popularity;
+    private String poster_path;
+    private String release_date;
     private String title;
-    private String releaseDate;
-    private String trailerLink;
-    private String poster;
-    private List<String> genres;
-    private List<String> backdrops;
+    private Boolean video;
+    private Double vote_average;
+    private Float vote_count;
     @DocumentReference
     private List<Review> reviewIds;
 

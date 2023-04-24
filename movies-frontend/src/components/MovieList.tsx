@@ -6,7 +6,7 @@ interface Props {
 }
 
 function MovieList({ movies }: Props) {
-
+      console.log(movies)
       return (
             <ul className="flex flex-wrap gap-8 items-center justify-center">
                   {movies.map(movie => (

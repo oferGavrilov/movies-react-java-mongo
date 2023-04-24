@@ -22,10 +22,10 @@ public class MovieController {
         return new ResponseEntity<List<Movie>>(service.findAllMovies(), HttpStatus.OK);
     }
 
-    @GetMapping("/{imdbId}")
-    public ResponseEntity<Optional<Movie>> getMovieById(@PathVariable String imdbId) {
-        return new ResponseEntity<Optional<Movie>>(service.movieById(imdbId) , HttpStatus.OK);
-    }
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Optional<Movie>> getMovieById(@PathVariable String id) {
+//        return new ResponseEntity<Optional<Movie>>(service.movieById(id) , HttpStatus.OK);
+//    }
 
 }
 

@@ -1,17 +1,22 @@
 export interface Movie {
-      id:string
-      imdbId:string
-      title:string
-      releaseDate:string
-      trailerLink:string
-      genres:string[]
-      poster:string
-      backdrops:string[]
-      reviews:Review[]
+      id: number
+      adult: boolean;
+      backdrop_path: string;
+      genre_ids: number[]
+      original_language: string;
+      original_title: string;
+      overview: string;
+      popularity: number;
+      poster_path: string;
+      release_date: string;
+      title: string;
+      video: boolean;
+      vote_average: number;
+      vote_count: number;
 }
 
 interface Review {
-      id:string
-      reviewBody:string
-      imdbId:string
+      id: string
+      reviewBody: string
+      imdbId: string
 }
