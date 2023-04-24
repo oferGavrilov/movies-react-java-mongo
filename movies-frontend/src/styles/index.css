@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Inter&family=Outfit&family=Raleway:wght@600&family=Roboto+Slab&display=swap');@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -12,7 +12,7 @@
 }
 
 .app-bg {
-  @apply px-4 min-h-screen sm:px-0 space-y-8 w-full bg-gray-900 font-raleway;
+  @apply px-4 min-h-screen sm:px-0 space-y-8 w-full bg-gray-900 ;
   background-image: radial-gradient(hsla(0, 0%, 84.3%, 0.25) 1px, transparent 0),
     radial-gradient(hsla(0, 0%, 84.3%, 0.1) 1px, transparent 0);
   background-size: 50px 50px;
@@ -42,7 +42,7 @@
   }
 
   .header-title {
-    @apply text-6xl lg:text-7xl leading-none font-extrabold tracking-tight mb-8 sm:mb-10 text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-purple-800;
+    @apply text-4xl lg:text-6xl leading-none font-extrabold tracking-tight mb-8 sm:mb-10 text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-purple-800;
   }
 
   @keyframes bounce {

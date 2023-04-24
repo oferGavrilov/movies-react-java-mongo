@@ -10,6 +10,10 @@ function Home() {
 
       useEffect(() => {
             loadMovies()
+            fetch('https://api.themoviedb.org/3/movie/popular?api_key=3bb2e65a839793d05ec311b4926c2ae0')
+                  .then(response => response.json())
+                  .then(data => console.log(data))
+                  .catch(error => console.error(error));
       }, [])
 
       async function loadMovies() {
@@ -20,7 +24,7 @@ function Home() {
       return (
             <>
                   <Layout>
-                        <MovieList />
+                        <MovieList movies={movies} />
                   </Layout>
             </>
       )
