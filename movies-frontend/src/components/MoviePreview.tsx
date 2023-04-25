@@ -9,12 +9,14 @@ import Collapse from '@mui/material/Collapse';
 import Avatar from '@mui/material/Avatar';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
+import { lime, purple, red } from '@mui/material/colors';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Movie } from 'src/models/movie.model';
+import { colors, createTheme } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 interface ExpandMoreProps extends IconButtonProps {
       expand: boolean;
@@ -42,37 +44,50 @@ export default function MoviePreview({ movie }: Props) {
             setExpanded(!expanded);
       };
 
+      const closeExpand = () => { setExpanded(false) }
+
       return (
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ flexGrow: 1 }} className={`!bg-inherit !shadow-md  !shadow-violet-400 hover:!shadow-xl hover:!shadow-violet-400 !text-white max-w-[540px]
+             border-t border-violet-300/80 transition-all delay-300 `}>
                   <CardHeader
                         avatar={
-                              <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                    R
+                              <Avatar sx={{ bgcolor: purple[400] }} aria-label="recipe">
+                                    {movie.adult ? '18+' : '16+'}
                               </Avatar>
                         }
                         action={
-                              <IconButton aria-label="settings">
+                              <IconButton aria-label="settings" className='!text-white'>
                                     <MoreVertIcon />
                               </IconButton>
                         }
-                        title="Shrimp and Chorizo Paella"
-                        subheader="September 14, 2016"
+                        title={movie.title}
+                        titleTypographyProps={{ className: '!font-bold' }}
+                        className='!text-white overflow-ellipsis overflow-hidden whitespace-nowrap font-bold'
+                        subheader={movie.release_date.split('-').reverse().join('-')}
+                        subheaderTypographyProps={{ className: '!text-white' }}
                   />
-                  <CardMedia
-                        component="img"
-                        height="194"
-                        image={movie.poster}
-                        alt={movie.title}
-                  />
+                  <Link to={`/movie/${movie._id}`} className='relative'>
+                        <div className='black-layer'>
+                              <CardMedia
+                                    component="img"
+                                    height="194"
+                                    className='image'
+                                    image={`https://image.tmdb.org/t/p/w500${movie.backdrop_path || movie.poster_path}`}
+                                    alt={movie.title}
 
-                  <CardActions disableSpacing>
-                        <IconButton aria-label="add to favorites">
+                              />
+                        </div>
+                  </Link>
+
+                  <CardActions disableSpacing className='!py-4'>
+                        <IconButton aria-label="Add to favorites" className='!text-white'>
                               <FavoriteIcon />
                         </IconButton>
-                        <IconButton aria-label="share">
+                        <IconButton aria-label="share" className='!text-white'>
                               <ShareIcon />
                         </IconButton>
                         <ExpandMore
+                              className='!text-white'
                               expand={expanded}
                               onClick={handleExpandClick}
                               aria-expanded={expanded}
@@ -84,6 +99,7 @@ export default function MoviePreview({ movie }: Props) {
                   <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
                               <Typography paragraph>
+                                    {movie.overview}
                               </Typography>
                         </CardContent>
                   </Collapse>

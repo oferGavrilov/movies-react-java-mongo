@@ -12,7 +12,7 @@
 }
 
 .app-bg {
-  @apply px-4 min-h-screen sm:px-0 space-y-8 w-full bg-gray-900 ;
+  @apply px-4 min-h-screen sm:px-0 space-y-8 w-full bg-gray-900;
   background-image: radial-gradient(hsla(0, 0%, 84.3%, 0.25) 1px, transparent 0),
     radial-gradient(hsla(0, 0%, 84.3%, 0.1) 1px, transparent 0);
   background-size: 50px 50px;
@@ -29,7 +29,7 @@
 
 @layer components {
   .header {
-    @apply pt-4 z-10 relative  ;
+    @apply pt-4 z-10 relative;
     animation: bounce 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
@@ -43,6 +43,13 @@
 
   .header-title {
     @apply text-4xl lg:text-6xl leading-none font-extrabold tracking-tight mb-8 sm:mb-10 text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-purple-800;
+  }
+
+  .image {
+
+  }
+  .black-layer{
+    @apply w-full h-[303px] bg-[#242424] transition-opacity duration-200 opacity-60 hover:opacity-100 ;
   }
 
   @keyframes bounce {
